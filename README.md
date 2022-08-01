@@ -10,7 +10,7 @@ This project is part of the Microverse curriculum module 3. The main objective i
 ## Built With
 
 - React
-- JavaScript(React js)
+- JavaScript
 - CSS
 
 ## Additional Tools
