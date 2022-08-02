@@ -1,0 +1,27 @@
+.Hero {
+  margin-top: 150px;
+
+  .buttons {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .text {
+      width: 100%;
+      height: 60px;
+      padding: 15px 10px;
+      background-color: rgb(99, 92, 92);
+      border: none;
+    }
+
+    span {
+      font-size: 25px;
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      color: #ffff;
+    }
+  }
+}
