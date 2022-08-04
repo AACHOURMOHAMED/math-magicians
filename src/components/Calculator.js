@@ -1,64 +1,61 @@
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-useless-constructor */
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './button/Button';
 import './Calculator.scss';
 import Result from './result';
 import calculate from '../logic/calculate';
 
-export class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { output: '0' };
-    this.obj = {};
-  }
+let obj = {};
 
-  handleButtonClick = (buttonName) => {
-    this.obj = calculate(this.obj, buttonName);
+const Calculator = () => {
+  const [output, setOutput] = useState(0);
 
-    if (this.obj.operation && !this.obj.next) {
-      this.setState({ output: this.obj.operation });
-    } else if (this.obj.next) {
-      this.setState({ output: this.obj.next });
-    } else if (this.obj.total) {
-      this.setState({ output: this.obj.total });
-    } else {
-      this.setState({ output: 0 });
+  const handleButtonClick = (buttonName) => {
+    obj = calculate(obj, buttonName);
+
+    let outStr = '';
+    if (obj.total) {
+      outStr += obj.total;
     }
-  }
+    if (obj.operation) {
+      outStr += obj.operation;
+    }
+    if (obj.next) {
+      outStr += obj.next;
+    }
+    if (outStr === '') {
+      outStr += '0';
+    }
 
-  render() {
-    const { output } = this.state;
-    return (
-      <main className="Hero">
-        <div className="container">
-          <div className="buttons">
-            <Result output={output} />
-            <Button handleButtonClick={this.handleButtonClick}>AC</Button>
-            <Button handleButtonClick={this.handleButtonClick}>+/-</Button>
-            <Button handleButtonClick={this.handleButtonClick}>%</Button>
-            <Button buttonStyle="btn--sec" handleButtonClick={this.handleButtonClick}>÷</Button>
-            <Button handleButtonClick={this.handleButtonClick}>7</Button>
-            <Button handleButtonClick={this.handleButtonClick}>8</Button>
-            <Button handleButtonClick={this.handleButtonClick}>9</Button>
-            <Button buttonStyle="btn--sec" handleButtonClick={this.handleButtonClick}>x</Button>
-            <Button handleButtonClick={this.handleButtonClick}>4</Button>
-            <Button handleButtonClick={this.handleButtonClick}>5</Button>
-            <Button handleButtonClick={this.handleButtonClick}>6</Button>
-            <Button buttonStyle="btn--sec" handleButtonClick={this.handleButtonClick}>-</Button>
-            <Button handleButtonClick={this.handleButtonClick}>1</Button>
-            <Button handleButtonClick={this.handleButtonClick}>2</Button>
-            <Button handleButtonClick={this.handleButtonClick}>3</Button>
-            <Button buttonStyle="btn--sec" handleButtonClick={this.handleButtonClick}>+</Button>
-            <Button buttonStyle="btn--zero" handleButtonClick={this.handleButtonClick}>0</Button>
-            <Button handleButtonClick={this.handleButtonClick}>.</Button>
-            <Button buttonStyle="btn--sec" handleButtonClick={this.handleButtonClick}>=</Button>
-          </div>
+    setOutput(outStr);
+  };
+  return (
+    <main className="Hero">
+      <div className="container">
+        <div className="buttons">
+          <Result output={output} />
+          <Button handleButtonClick={handleButtonClick}>AC</Button>
+          <Button handleButtonClick={handleButtonClick}>+/-</Button>
+          <Button handleButtonClick={handleButtonClick}>%</Button>
+          <Button buttonStyle="btn--sec" handleButtonClick={handleButtonClick}>÷</Button>
+          <Button handleButtonClick={handleButtonClick}>7</Button>
+          <Button handleButtonClick={handleButtonClick}>8</Button>
+          <Button handleButtonClick={handleButtonClick}>9</Button>
+          <Button buttonStyle="btn--sec" handleButtonClick={handleButtonClick}>x</Button>
+          <Button handleButtonClick={handleButtonClick}>4</Button>
+          <Button handleButtonClick={handleButtonClick}>5</Button>
+          <Button handleButtonClick={handleButtonClick}>6</Button>
+          <Button buttonStyle="btn--sec" handleButtonClick={handleButtonClick}>-</Button>
+          <Button handleButtonClick={handleButtonClick}>1</Button>
+          <Button handleButtonClick={handleButtonClick}>2</Button>
+          <Button handleButtonClick={handleButtonClick}>3</Button>
+          <Button buttonStyle="btn--sec" handleButtonClick={handleButtonClick}>+</Button>
+          <Button buttonStyle="btn--zero" handleButtonClick={handleButtonClick}>0</Button>
+          <Button handleButtonClick={handleButtonClick}>.</Button>
+          <Button buttonStyle="btn--sec" handleButtonClick={handleButtonClick}>=</Button>
         </div>
-      </main>
-    );
-  }
-}
+      </div>
+    </main>
+  );
+};
 
 export default Calculator;
