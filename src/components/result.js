@@ -1,18 +1,17 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-useless-constructor */
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import './Calculator.scss';
+import PropTypes from 'prop-types';
 
-class Result extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Result = (props) => {
+  const { output } = props;
+  return <div className="text">{output}</div>;
+};
 
-  render() {
-    const { output } = this.props;
-    return <div className="text">{output}</div>;
-  }
-}
+Result.defaultProps = {
+  output: '0',
+};
+
+Result.propTypes = {
+  output: PropTypes.string,
+};
 
 export default Result;
