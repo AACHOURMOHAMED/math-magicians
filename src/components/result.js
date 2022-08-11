@@ -11,7 +11,7 @@ Result.defaultProps = {
 };
 
 Result.propTypes = {
-  output: PropTypes.string,
+  output: PropTypes.node,
 };
 
 export default Result;
