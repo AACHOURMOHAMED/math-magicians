@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test screenshots for all components matches Button snapshot 1`] = `
-<button
-  className="btn btn--primary"
-  onClick={[Function]}
-  type="button"
-/>
-`;
-
 exports[`test screenshots for all components matches Calculator snapshot 1`] = `
 <main
   className="Hero"
