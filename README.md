@@ -5,7 +5,7 @@ Math magicians is a website for all fans of mathematics. It is a Single Page App
 This project is part of the Microverse curriculum module 3. The main objective is to understand how create a React app, use class based-components, hooks, state, run tests, and creating professional documentation for development.
 
 ## Live Preview
-
+> Coming soon
 
 ## Built With
 
